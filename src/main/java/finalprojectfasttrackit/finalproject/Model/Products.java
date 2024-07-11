@@ -19,13 +19,13 @@ public class Products {
         this.id = id;
     }
 
-    @Column(name = "iduser")
+    @Column(name = "name")
     String name;
     @Column(name = "description")
     String description;
     @Column(name = "price")
     Double price;
-    @Column(name = "idCategory")
+    @Column(name = "idcategory")
     Integer idCategory;
     @Column(name = "iduser")
     Integer iduser;

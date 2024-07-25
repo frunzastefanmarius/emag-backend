@@ -10,7 +10,6 @@ public class Products {
     //@SequenceGenerator(name = "product_seq", sequenceName = "product_seq", allocationSize = 5)
     private Integer id;
 
-
     public Integer getId() {
         return id;
     }

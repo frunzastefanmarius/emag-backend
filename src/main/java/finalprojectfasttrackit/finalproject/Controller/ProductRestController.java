@@ -1,7 +1,8 @@
 package finalprojectfasttrackit.finalproject.Controller;
 
 import finalprojectfasttrackit.finalproject.Model.Products;
-import finalprojectfasttrackit.finalproject.Repository.ProductRepo;
+import finalprojectfasttrackit.finalproject.Model.Users;
+import finalprojectfasttrackit.finalproject.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,32 +13,26 @@ import java.util.List;
 public class ProductRestController {
 
     @Autowired
-    private ProductRepo myProductRepo;
+    private ProductsService myProductService;
 
-    @GetMapping("")
+    @GetMapping
     public List<Products> getAllProducts(){
-        return myProductRepo.findAll();
+        return myProductService.getAllProducts();
     }
 
-    @PostMapping("")
-    public Products createProduct(@RequestBody Products myProduct){
-        return myProductRepo.save(myProduct);
+    @PostMapping
+    public Products createProducts(@RequestBody Products myProducts){
+        return myProductService.createProducts(myProducts);
     }
 
     @PutMapping("/{id}")
-    public Products updateProduct(@PathVariable Integer id, @RequestBody Products productUpdated){
+    public Products updateProducts(@PathVariable Integer id, @RequestBody Products productsUpdated){
 
-        Products myProduct = myProductRepo.findById(id).orElseThrow(()->new RuntimeException("Products not found in DB"));
-        myProduct.setName(productUpdated.getName());
-        myProduct.setDescription(productUpdated.getDescription());
-        myProduct.setPrice(productUpdated.getPrice());
-        //myProduct.setIdCategory(productUpdated.getIdCategory());
-
-        return  myProductRepo.save(myProduct);
+        return myProductService.updateProducts(id, productsUpdated);
     }
     @DeleteMapping("/{id}")
-    public Products deleteProduct(@PathVariable Integer id){
-        myProductRepo.deleteById(id);
-        return null;//de ce aici e nevoie si in exemplu de la curs nu?
+    public Users deleteProduct(@PathVariable Integer id){
+        myProductService.deleteProduct(id);
+        return null;
     }
 }

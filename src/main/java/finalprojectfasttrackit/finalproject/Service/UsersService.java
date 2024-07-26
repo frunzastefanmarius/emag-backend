@@ -4,8 +4,6 @@ import finalprojectfasttrackit.finalproject.Model.Users;
 import finalprojectfasttrackit.finalproject.Repository.UsersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -24,6 +22,9 @@ public class UsersService {
     }
 
     public Users createUser(Users myUsers){
+        if(myUsers.getPassword().length()<6){
+            throw new RuntimeException("Password too short.:(");
+        }
         return myUsersRepo.save(myUsers);
     }
     public Users updateUsers(Integer id, Users userUpdated){

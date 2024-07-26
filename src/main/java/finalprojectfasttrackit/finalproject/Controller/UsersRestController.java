@@ -5,9 +5,11 @@ import finalprojectfasttrackit.finalproject.Model.Users;
 import finalprojectfasttrackit.finalproject.Repository.UsersRepo;
 import finalprojectfasttrackit.finalproject.Service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/users")
@@ -22,8 +24,12 @@ public class UsersRestController {
     }
 
     @PostMapping
-    public Users createUser(@RequestBody Users myUsers){
-        return myUsersService.createUser(myUsers);
+    public ResponseEntity<Users> createUser(@RequestBody Users myUsers){
+        try {
+            return ResponseEntity.ok(myUsersService.createUser(myUsers));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping("/{id}")

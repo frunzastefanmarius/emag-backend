@@ -1,12 +1,12 @@
 package finalprojectfasttrackit.finalproject.Service;
 
 import finalprojectfasttrackit.finalproject.Model.Order;
-import finalprojectfasttrackit.finalproject.Model.Products;
 import finalprojectfasttrackit.finalproject.Repository.OrderRepo;
-import finalprojectfasttrackit.finalproject.Repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -14,6 +14,8 @@ public class OrderService {
 
     @Autowired
     private OrderRepo myOrderRepo;
+    @Autowired
+    private BasketService myBasketService;
 
     public List<Order> getAllOrders(){
        return myOrderRepo.findAll();
@@ -24,7 +26,13 @@ public class OrderService {
     }
 
     public Order createOrder(Order myOrder){
-        return myOrderRepo.save(myOrder);
+        Calendar currentTime = Calendar.getInstance();
+        myOrder.setCreationDateTime(new Timestamp(currentTime.getTime().getTime()));
+
+        Order newOrder = myOrderRepo.save(myOrder);
+        myBasketService.deleteBasketForProductAndUser(myOrder.getIdProduct(), myOrder.getIdUser());
+
+        return newOrder;
     }
 
     public Order updateOrder(Integer id, Order orderUpdated){
@@ -33,8 +41,8 @@ public class OrderService {
         myOrder.setCreationDateTime(orderUpdated.getCreationDateTime());
         myOrder.setDelivery(orderUpdated.isDelivery());
         myOrder.setPayment(orderUpdated.isPayment());
-        myOrder.setIduser(orderUpdated.getIduser());
-        myOrder.setIdproduct(orderUpdated.getIdproduct());
+        myOrder.setIdUser(orderUpdated.getIdUser());
+        myOrder.setIdProduct(orderUpdated.getIdProduct());
 
         return  myOrderRepo.save(myOrder);
     }

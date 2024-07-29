@@ -6,6 +6,7 @@ import finalprojectfasttrackit.finalproject.Repository.BasketRepo;
 import finalprojectfasttrackit.finalproject.Repository.CategoriesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -39,4 +40,10 @@ public class BasketService {
         myBasketRepo.deleteById(id);
         return null;
     }
+
+    @Transactional
+    public void deleteBasketForProductAndUser(Integer idproduct, Integer iduser){
+        myBasketRepo.deleteByIdProductAndIdUser(idproduct, iduser);
+    }
+
 }

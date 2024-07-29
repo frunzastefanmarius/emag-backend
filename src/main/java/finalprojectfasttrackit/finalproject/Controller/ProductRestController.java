@@ -21,6 +21,11 @@ public class ProductRestController {
         return myProductService.getAllProducts();
     }
 
+    @GetMapping("/{id}")
+    public Products getProductById(@PathVariable Integer id){
+        return myProductService.findById(id);
+    }
+
     @PostMapping
     public Products createProducts(@RequestBody Products myProducts){
         return myProductService.createProducts(myProducts);

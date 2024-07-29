@@ -16,7 +16,7 @@ public class Users {
     @Column(name="isactive")
     boolean isactive;
     @Column(name="isbuyer")
-    boolean isbuyer;
+    boolean isBuyer;
 
     public Users() {
         // Default constructor
@@ -59,11 +59,11 @@ public class Users {
         this.isactive = isactive;
     }
 
-    public boolean isIsbuyer() {
-        return isbuyer;
+    public boolean isIsBuyer() {
+        return isBuyer;
     }
 
-    public void setIsbuyer(boolean isbuyer) {
-        this.isbuyer = isbuyer;
+    public void setIsBuyer(boolean isbuyer) {
+        this.isBuyer = isbuyer;
     }
 }

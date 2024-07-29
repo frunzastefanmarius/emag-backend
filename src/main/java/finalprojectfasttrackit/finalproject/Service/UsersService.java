@@ -26,6 +26,7 @@ public class UsersService {
         if(myUsers.getPassword().length()<6){
             throw new RuntimeException("Password too short.:(");
         }
+        myUsers.setIsBuyer(true);
         return myUsersRepo.save(myUsers);
     }
     public Users updateUsers(Integer id, Users userUpdated){
@@ -34,7 +35,7 @@ public class UsersService {
         myUser.setUsername(userUpdated.getUsername());
         myUser.setPassword(userUpdated.getPassword());
         myUser.setIsactive(userUpdated.isIsactive());
-        myUser.setIsbuyer(userUpdated.isIsbuyer());
+        myUser.setIsBuyer(userUpdated.isIsBuyer());
 
         return  myUsersRepo.save(myUser);
     }
@@ -49,4 +50,6 @@ public class UsersService {
 
 
     //TODO: exception handling pe partea de FE, sa termin add in basket ca era ceva problema, altele ce mai vin, remove userID din product
+    //sa facem requests pe baza userului logat
+    //daca userul nu e buyer, atunci sa arate pe products add/update/delete si sa arate toate comenzile in basket
 }

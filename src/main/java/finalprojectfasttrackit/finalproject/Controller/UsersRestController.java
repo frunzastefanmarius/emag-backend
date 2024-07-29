@@ -21,6 +21,11 @@ public class UsersRestController {
         return myUsersService.getAllUsers();
     }
 
+    @GetMapping("/{id}")
+    public Users getUserById(@PathVariable Integer id){
+        return myUsersService.findById(id);
+    }
+
     @PostMapping
     public ResponseEntity<Users> createUser(@RequestBody Users myUsers){
         try {

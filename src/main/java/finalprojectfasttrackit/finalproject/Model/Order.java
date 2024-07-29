@@ -27,9 +27,9 @@ public class Order {
     @Column(name="payment")
     boolean payment;
     @Column(name="iduser")
-    Integer iduser;
+    Integer idUser;
     @Column(name="idproduct")
-    Integer idproduct;
+    Integer idProduct;
 
     public Timestamp getCreationDateTime() {
         return creationDateTime;
@@ -55,19 +55,19 @@ public class Order {
         this.payment = payment;
     }
 
-    public Integer getIduser() {
-        return iduser;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setIduser(Integer iduser) {
-        this.iduser = iduser;
+    public void setIdUser(Integer iduser) {
+        this.idUser = iduser;
     }
 
-    public Integer getIdproduct() {
-        return idproduct;
+    public Integer getIdProduct() {
+        return idProduct;
     }
 
-    public void setIdproduct(Integer idproduct) {
-        this.idproduct = idproduct;
+    public void setIdProduct(Integer idproduct) {
+        this.idProduct = idproduct;
     }
 }

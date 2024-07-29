@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: FinalProject
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: root
+        url: jdbc:mysql://localhost:3306/emag
+        username: root

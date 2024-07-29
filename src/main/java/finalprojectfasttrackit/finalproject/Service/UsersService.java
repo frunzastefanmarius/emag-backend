@@ -2,6 +2,7 @@ package finalprojectfasttrackit.finalproject.Service;
 
 import finalprojectfasttrackit.finalproject.Model.Users;
 import finalprojectfasttrackit.finalproject.Repository.UsersRepo;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,4 +43,10 @@ public class UsersService {
         return null;
     }
 
+    public Users authenticateUser(String username, String password){
+        return myUsersRepo.findByUsernameAndPassword(username, password).orElseThrow(()->new EntityNotFoundException("Invalid credentials"));
+    }
+
+
+    //TODO: exception handling pe partea de FE, sa termin add in basket ca era ceva problema, altele ce mai vin, remove userID din product
 }

@@ -1,16 +1,13 @@
 package finalprojectfasttrackit.finalproject.Controller;
 
 import finalprojectfasttrackit.finalproject.Model.Basket;
-import finalprojectfasttrackit.finalproject.Model.Products;
-import finalprojectfasttrackit.finalproject.Model.Users;
-import finalprojectfasttrackit.finalproject.Repository.BasketRepo;
 import finalprojectfasttrackit.finalproject.Service.BasketService;
-import finalprojectfasttrackit.finalproject.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/basket")
 public class BasketRestController {
@@ -27,6 +24,7 @@ public class BasketRestController {
     public Basket createBasket(@RequestBody Basket myBasket){
         return myBasketService.createBasket(myBasket);
     }
+
 
     @PutMapping("/{id}")
     public Basket updateBasket(@PathVariable Integer id, @RequestBody Basket basketUpdated){

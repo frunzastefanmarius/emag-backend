@@ -9,14 +9,6 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     @Column(name="username")
     String username;
     @Column(name ="password")
@@ -25,6 +17,23 @@ public class Users {
     boolean isactive;
     @Column(name="isbuyer")
     boolean isbuyer;
+
+    public Users() {
+        // Default constructor
+    }
+
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

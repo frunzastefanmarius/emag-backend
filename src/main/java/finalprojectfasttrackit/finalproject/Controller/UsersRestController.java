@@ -1,8 +1,6 @@
 package finalprojectfasttrackit.finalproject.Controller;
 
-import finalprojectfasttrackit.finalproject.Model.Products;
 import finalprojectfasttrackit.finalproject.Model.Users;
-import finalprojectfasttrackit.finalproject.Repository.UsersRepo;
 import finalprojectfasttrackit.finalproject.Service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UsersRestController {

@@ -1,17 +1,14 @@
 package finalprojectfasttrackit.finalproject.Controller;
 
 import finalprojectfasttrackit.finalproject.Model.Categories;
-import finalprojectfasttrackit.finalproject.Model.Products;
 import finalprojectfasttrackit.finalproject.Model.Users;
-import finalprojectfasttrackit.finalproject.Repository.CategoriesRepo;
 import finalprojectfasttrackit.finalproject.Service.CategoryService;
-import finalprojectfasttrackit.finalproject.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/categories")
 public class CategoriesRestController {

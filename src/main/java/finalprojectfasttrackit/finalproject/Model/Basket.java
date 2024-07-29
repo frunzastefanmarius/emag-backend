@@ -9,6 +9,19 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@SequenceGenerator(name = "basket_seq", sequenceName = "basket_seq", allocationSize = 1)
     private Integer id;
+    @Column(name = "iduser")
+    Integer idUser;
+    @Column(name = "idproduct")
+    Integer idProduct;
+
+    public Basket() {
+
+    }
+
+    public Basket(Integer idUser, Integer idProduct) {
+        this.idUser = idUser;
+        this.idProduct = idProduct;
+    }
 
     public Integer getId() {
         return id;
@@ -17,10 +30,7 @@ public class Basket {
     public void setId(Integer id) {
         this.id = id;
     }
-    @Column(name = "iduser")
-    Integer idUser;
-    @Column(name = "idproduct")
-    Integer idProduct;
+
     public Integer getIdUser() {
         return idUser;
     }

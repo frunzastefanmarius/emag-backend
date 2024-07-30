@@ -26,7 +26,6 @@ public class UsersService {
         if(myUsers.getPassword().length()<6){
             throw new RuntimeException("Password too short.:(");
         }
-        myUsers.setIsBuyer(true);
         return myUsersRepo.save(myUsers);
     }
     public Users updateUsers(Integer id, Users userUpdated){

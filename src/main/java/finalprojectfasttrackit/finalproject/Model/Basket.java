@@ -14,14 +14,14 @@ public class Basket {
     @Column(name = "idproduct")
     Integer idProduct;
 
-    public Basket() {
+     public Basket() {
 
-    }
+     }
 
-    public Basket(Integer idUser, Integer idProduct) {
-        this.idUser = idUser;
-        this.idProduct = idProduct;
-    }
+     public Basket(Integer idUser, Integer idProduct) {
+         this.idUser = idUser;
+         this.idProduct = idProduct;
+     }
 
     public Integer getId() {
         return id;

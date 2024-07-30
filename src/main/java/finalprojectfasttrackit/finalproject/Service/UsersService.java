@@ -43,12 +43,12 @@ public class UsersService {
         return null;
     }
 
-    public Users authenticateUser(String username, String password){
-        return myUsersRepo.findByUsernameAndPassword(username, password).orElseThrow(()->new EntityNotFoundException("Invalid credentials"));
+     public Users authenticateUser(String username, String password){
+         return myUsersRepo.findByUsernameAndPassword(username, password).orElseThrow(()->new EntityNotFoundException("Invalid credentials"));
     }
 
 
-    //TODO: exception handling pe partea de FE, sa termin add in basket ca era ceva problema, altele ce mai vin, remove userID din product
+     //TODO: exception handling pe partea de FE, sa termin add in basket ca era ceva problema, altele ce mai vin, remove userID din product
     //sa facem requests pe baza userului logat
     //daca userul nu e buyer, atunci sa arate pe products add/update/delete si sa arate toate comenzile in basket
 }

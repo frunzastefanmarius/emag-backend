@@ -19,13 +19,13 @@ public class Users {
     boolean isBuyer;
 
     public Users() {
-        // Default constructor
+        // Default  constructor
     }
 
-    public Users(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+     public Users(String username, String password) {
+         this.username = username;
+         this.password = password;
+     }
 
     public Integer getId() {
         return id;

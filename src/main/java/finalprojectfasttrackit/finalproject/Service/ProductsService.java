@@ -33,7 +33,6 @@ public class ProductsService {
         myProduct.setName(productUpdated.getName());
         myProduct.setDescription(productUpdated.getDescription());
         myProduct.setPrice(productUpdated.getPrice());
-//        myProduct.setIduser(productUpdated.getIduser());
         myProduct.setIdCategory(productUpdated.getIdCategory());
 
         return  myProductRepo.save(myProduct);

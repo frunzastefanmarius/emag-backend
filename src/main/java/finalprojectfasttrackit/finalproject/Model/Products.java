@@ -26,8 +26,7 @@ public class Products {
     Double price;
     @Column(name = "idcategory")
     Integer idCategory;
-//    @Column(name = "iduser")
-//    Integer iduser;
+
 
     public String getName() {
         return name;
@@ -61,11 +60,4 @@ public class Products {
         this.idCategory = idCategory;
     }
 
-//    public Integer getIduser() {
-//        return iduser;
-//    }
-//
-//    public void setIduser(Integer iduser) {
-//        this.iduser = iduser;
-//    }
 }
